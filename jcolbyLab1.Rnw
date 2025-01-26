@@ -63,44 +63,125 @@ For this lab, you will
  \textbf{Remark:} You will find the class Sweave cheat sheet to be
  \emph{incredibly}(\verb|\emph{incredibly}|)helpful.
 
-\subsection{Intro Subsection}
-You might need/want to discuss the topics in subsections. Or, you may have multiple questions.
+\section{Word Processing Tasks}
+
+\subsection{Centering Text}
+
+\begin{center}
+ We can center text in Sweave.
+\end{center}
+
+\subsection{Bolds, Italics, and Underlining}
+ We can \textbf{bold}, \textit{italicize}, \underline{underline}, and \emph{emphasize} text in Sweave. 
+ 
+ Note, I did a column break here so that the list wasn’t
+ broken a cross columns.
+\columnbreak
+
+\subsection{Lists, and Numbered Lists}
+ We can write an unordered list in Sweave.
+ \begin{itemize}\itemsep0em
+\item first item
+\item second item
+\item third item
+\end{itemize}
+ We can write an numbered list in Sweave.
+ \begin{enumerate}[1.]\itemsep0em
+\item first item
+\item second item
+\item third item
+\end{enumerate}
+ We can write a lettered list in Sweave.
+\begin{enumerate}[a.]\itemsep0em
+\item first item
+\item second item
+\item third item
+\end{enumerate}
+
+\subsection{Submissions}
+ This part of the midterm is due Sunday November 14 by 5p.
+ I will not accept late submissions. Note that you may use
+ this template to help build your introduction and methods
+ sections,and you can use the work you did as a group during
+ the datathon. Still, I expect this submission to be your own
+ summary and extension of that work without collaboration.
+
+\subsection{Typing Mathematical Equations}
+We can write a one line equation that is centered like this
+\[\widehat{y_i} = \beta_0 + \beta_1 x_{1i}+ \beta_2 x_{2i} +\beta_3 x_{1i} x_{2i} + \epsilon_i.\]
+This can be written in the text, as $\widehat{y_i} = \beta_0 + \beta_1 x_{1i}+ \beta_2 x_{2i} +\beta_3 x_{1i} x_{2i} + \epsilon_i$ using as well.
+
+When we need to show multiple steps,we can create a
+ multi-line equation that is centered like this:
+\begin{align*}
+ 8(x-5)+x=9(x-5)+5\\
+ 8x-40+x=9x-45+5 \tag{Distributing}\\
+ 9x-40=9x-40 \tag{Combining like terms}\\
+ 9x=9x \tag{Adding 40 to both sides}\\
+ x=x \tag{Dividing both sides by 9}
+\end{align*}
+The equality holds for any x.
+
+Note, I did a page break here so that the next section
+ started on a clean page.
+\pagebreak
+
+\subsection{Running R code}
+ Code chunks can be entered into Sweave; e.g., here are some
+ comments.
+<< >>=
+# R code goes here
+# Output is automatically printed in the pdf
+@
+ 
+Below, you can see that we can do algebra with R.
+
+<< >>=
+8*(9-5)+9 # 8(x-5) + x for x=9
+@
+
+ Below,we show we can produced the code without evaluating it.
+<<eval=FALSE, >>=
+8*(9-5)+9 # 8(x-5) + x for x=9
+@
+ Alternatively, we can produced the output without the code.
+<<echo=FALSE, >>=
+8*(9-5)+9 # 8(x-5) + x for x=9
+@
+We can also call object values from R directly.
+<< >>=
+ result <- 8*(9-5)+ 9 #8(x-5)+x for x=9
+ result.with.error <- result + rnorm(1,mean=0,sd =0.1)
+ result.with.error
+@
+ The result is \Sexpr{result.with.error}. Note that I did not type the
+ result, but I used the \verb|\Sexpr{}| command.
 
 
-\section{Methods}
-Describe the data you are working with, if applicable. Describe the specific process you will follow to answer the question at hand. This does not mean you should write something like this.
-\begin{quote}
-\textit{I did this and then I did that and then I did this other thing and then..., and then..., and then...}
-\end{quote}
-Instead, it should provide a clear and concise narrative that flows from the problem specification in the Introduction to how you will approach answering it. This is where I would expect to see some citations for \texttt{R} packages you will use to conduct the statistical analysis reported in the Results section.
+\subsection{Plotting}
+We can also plot with R.
+<<plot1, eval=FALSE, >>=
+#Plot a histogram of random normally distributed data
+hist(rexp(100))
+@
+
+\begin{figure}[H]
+\begin{center}
+%This code is evaluated, but not printed
+%warning=FALSE and message=FALSE ensure no text is returned as a by product of
+%printing; this would cause an error in that plot+text is returned instead of
+%just the plot
+<<echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(5,3.5)>>=
+<<plot1>>
+@
+\caption{A histogram of random exponentially distributed data, $n=100$.}
+\label{plot1} %we can now reference plot1
+\end{center}
+\end{figure}
+
+\columnbreak
 
 
-\subsection{Methods Subsection}
-Much like the Introduction, subsections can be helpful for the Methods section. For example, you might describe data collection and the statistical analyses of the collected data in different subsections. Or, you may have different questions that require distinct methods. 
-
-\section{Results}
-Tie together the Introduction -- where you introduce the problem at hand -- and the methods --  what you propose to do to answer the question. Present your data, the results of your analyses, and how each reported aspect contributes to answering the question. This section should include table(s), statistic(s), and graphical displays. Make sure to put the results in a sensible order and that each result contributes a logical and developed solution. It should not just be a list. Avoid being repetitive. 
-
-\subsection{Results Subsection}
-Subsections can be helpful for the Results section, too. This can be particularly helpful if you have different questions to answer. 
-
-
-\section{Discussion}
- You should objectively evaluate the evidence you found in the data. Do not embellish or wish-terpet (my made-up phase for making an interpretation you, or the researcher, wants to be true without the data \emph{actually} supporting it). Connect your findings to the existing information you provided in the Introduction.
-
-Finally, provide some concluding remarks that tie together the entire paper. Think of the last part of the results as abstract-like. Tell the reader what they just consumed -- what's the takeaway message?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{2em}
-
-\noindent\textbf{Bibliography:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
-
-\begin{tiny}
-\bibliography{bib}
-\end{tiny}
 \end{multicols}
 
 \end{document}
