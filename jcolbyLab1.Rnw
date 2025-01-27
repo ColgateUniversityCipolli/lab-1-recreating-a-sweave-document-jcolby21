@@ -49,7 +49,7 @@ For this lab, you will
 \begin{enumerate}[1.]\itemsep0em
 \item Install \href{https://cran.rstudio.com/}{R} and \href{https://posit.co/download/rstudio-desktop/}{RStudio}
 \item Install tinytex (if necessary): \\ \textbf{install.packages("tinytex")}
-\item Create a Github account \href{ https://github.com/}{here},and email me your username.
+\item Create a Github account \href{ https://github.com/}{here}, and email me your username.
 \item Install \href{https://github.com/apps/desktop}{Github Desktop} 
 \item Accept the Lab 1 Document \href{https://github.com/login?client_id=Iv1.a84bfcae38835499&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3DIv1.a84bfcae38835499%26redirect_uri%3Dhttps%253A%252F%252Fclassroom.github.com%252Fauth%252Fgithub%252Fcallback%26response_type%3Dcode%26state%3D3567fc1aae917e5c0b1e3adfdc1ef646081add6f7014be60}{here}
 \item Recreate this document (except put your name/info at
@@ -181,6 +181,35 @@ hist(rexp(100))
 
 \columnbreak
 
+\subsection{Tables}
+
+Below,we load and take a peek at some data about the death
+ rates per 1000 in Virginia in 1940 (\cite{molyneaux1947differences}).
+ 
+ << >>=
+data("VADeaths")
+head(VADeaths) # Take a peek of the data
+@
+
+ If we want to print this nicely, we can do so using the
+ xtable package \citep{xtable}, which we can reference
+ using the label (Table 1).
+ 
+ << >>=
+library(xtable)
+sleep.table<-xtable(VADeaths,
+     label="VADeaths.tab",
+     caption="Death Rates per 1000 in Virginia (1940).")
+@
+ 
+<<results="asis">>=
+print(sleep.table,
+table.placement = "H", include.rownames=FALSE, size = "small")
+@
+
+\begin{tiny}
+\bibliography{bib}
+\end{tiny}
 
 \end{multicols}
 
