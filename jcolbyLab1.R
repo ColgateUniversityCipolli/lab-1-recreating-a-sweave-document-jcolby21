@@ -180,7 +180,43 @@ We can also plot with R.
 
 \columnbreak
 
+\subsection{Tables}
+
+Below,we load and take a peek at some data about the death
+rates per 1000 in Virginia in 1940 (\cite{molyneaux1947differences}).
+
+<< >>=
+  data("VADeaths")
+head(VADeaths) # Take a peek of the data
+@
+  
+  If we want to print this nicely, we can do so using the
+xtable package \citep{xtable}, which we can reference
+using the label (Table 1).
+
+<< >>=
+  library(xtable)
+sleep.table<-xtable(VADeaths,
+                    label="VADeaths.tab",
+                    caption="Death Rates per 1000 in Virginia (1940).")
+@
+  
+  <<results="asis">>=
+  print(sleep.table,
+        table.placement = "H", include.rownames=FALSE, size = "small")
+@
+  
+  \begin{tiny}
+\bibliography{bib}
+\end{tiny}
+
+\pagebreak
+
 \end{multicols}
+
+\section{Appendix}
+Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
 
 \end{document}
 
+citation("palmerpenguins")
