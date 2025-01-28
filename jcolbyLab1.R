@@ -20,6 +20,7 @@
 {\endminipage\par\medskip}
 
 \begin{document}
+
 \vspace{-1in}
 \title{Lab 1 -- MATH 240 -- Computational Statistics}
 
@@ -48,7 +49,7 @@ For this lab, you will
 \begin{enumerate}[1.]\itemsep0em
 \item Install \href{https://cran.rstudio.com/}{R} and \href{https://posit.co/download/rstudio-desktop/}{RStudio}
 \item Install tinytex (if necessary): \\ \textbf{install.packages("tinytex")}
-\item Create a Github account \href{ https://github.com/}{here},and email me your username.
+\item Create a Github account \href{ https://github.com/}{here}, and email me your username.
 \item Install \href{https://github.com/apps/desktop}{Github Desktop} 
 \item Accept the Lab 1 Document \href{https://github.com/login?client_id=Iv1.a84bfcae38835499&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3DIv1.a84bfcae38835499%26redirect_uri%3Dhttps%253A%252F%252Fclassroom.github.com%252Fauth%252Fgithub%252Fcallback%26response_type%3Dcode%26state%3D3567fc1aae917e5c0b1e3adfdc1ef646081add6f7014be60}{here}
 \item Recreate this document (except put your name/info at
@@ -133,7 +134,7 @@ comments.
   # Output is automatically printed in the pdf
   @
   
-  Below, you can see that we can do algebra with R.
+  Below, you can see that we can do algebra with \texttt{R}.
 
 << >>=
   8*(9-5)+9 # 8(x-5) + x for x=9
@@ -158,7 +159,7 @@ result, but I used the \verb|\Sexpr{}| command.
 
 
 \subsection{Plotting}
-We can also plot with R.
+We can also plot with \texttt{R}.
 <<plot1, eval=FALSE, >>=
   #Plot a histogram of random normally distributed data
   hist(rexp(100))
@@ -192,7 +193,7 @@ head(VADeaths) # Take a peek of the data
   
   If we want to print this nicely, we can do so using the
 xtable package \citep{xtable}, which we can reference
-using the label (Table 1).
+using the label (Table \textcolor{red}{1}).
 
 << >>=
   library(xtable)
@@ -201,7 +202,8 @@ sleep.table<-xtable(VADeaths,
                     caption="Death Rates per 1000 in Virginia (1940).")
 @
   
-  <<results="asis">>=
+  <<results="asis", echo=FALSE>>=
+  
   print(sleep.table,
         table.placement = "H", include.rownames=FALSE, size = "small")
 @
@@ -215,8 +217,44 @@ sleep.table<-xtable(VADeaths,
 \end{multicols}
 
 \section{Appendix}
-Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+Below is a table from a paper I’m currently working on. Without the analysis object in \texttt{R}, I have to create this table myself.
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l  r  r  r  r  r }\hline
+Term & SS Type (III) & df & F & p-value & e \\\hline
+(Intercept) & 4.95 & 1.00 & 5.37 & 0.0209 & \\
+White-Poor (Z) & 3.17 & 1.00 & 3.44 & 0.0642 & 0.02 \\
+Zero-Sum (Z) & 17.96 & 1.00 & 19.48 & <0.0001 & 0.03 \\
+Education (Z) & 0.39 & 1.00 & 0.42 & 0.5161 & 0.00 \\
+Income (Z) & 0.16 & 1.00 & 0.17 & 0.6817 & 0.00 \\
+Democrat & 9.60 & 1.00 & 10.42 & 0.0013 & 0.02 \\
+Black-Poor (Z) & 1.92 & 1.00 & 2.08 & 0.1496 & 0.00 \\
+White-Poor(Z)×Zero-Sum(Z) & 7.96 & 1.00 & 8.63 & 0.0034 & 0.01 \\
+Residuals & 506.92 & 550.00 & & & \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{center}
+Table 2: ANOVA table for Case Study I.
+\end{center}
+
+The \texttt{palmerpenguins} package for \texttt{R} \citep{palmerpenguins} provides data on adult for aging penguins near Palmer Station, Antarctica. Figure \textcolor{red}{2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
+
+
+<<plot3, >>=
+  library(palmerpenguins)
+pdf("figure/penguins.pdf",width= 8, height=5)
+plot(penguins)
+dev.off()
+@
+  \begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{figure/penguins.pdf}
+\caption{Data on adult for aging penguins near Palmer Station, Antarctica.}
+\label{plot3}
+\end{center}
+\end{figure} 
 
 \end{document}
-
-citation("palmerpenguins")

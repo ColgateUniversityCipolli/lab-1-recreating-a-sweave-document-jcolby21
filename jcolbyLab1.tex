@@ -188,7 +188,7 @@ Note, I did a page break here so that the next section
 \end{kframe}
 \end{knitrout}
  
-Below, you can see that we can do algebra with R.
+Below, you can see that we can do algebra with \texttt{R}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -226,16 +226,16 @@ We can also call object values from R directly.
  \hldef{result.with.error}
 \end{alltt}
 \begin{verbatim}
-## [1] 40.93018
+## [1] 41.07148
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
- The result is 40.9301845. Note that I did not type the
+ The result is 41.0714762. Note that I did not type the
  result, but I used the \verb|\Sexpr{}| command.
 
 
 \subsection{Plotting}
-We can also plot with R.
+We can also plot with \texttt{R}.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -286,7 +286,7 @@ Below,we load and take a peek at some data about the death
 
  If we want to print this nicely, we can do so using the
  xtable package \citep{xtable}, which we can reference
- using the label (Table 1).
+ using the label (Table \textcolor{red}{1}).
  
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -300,7 +300,7 @@ Below,we load and take a peek at some data about the death
 \end{knitrout}
  
 % latex table generated in R 4.4.2 by xtable 1.8-4 package
-% Mon Jan 27 23:32:08 2025
+% Tue Jan 28 12:16:11 2025
 \begin{table}[H]
 \centering
 \begingroup\small
@@ -330,7 +330,7 @@ Rural Male & Rural Female & Urban Male & Urban Female \\
 \end{multicols}
 
 \section{Appendix}
- Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+ Below is a table from a paper I’m currently working on. Without the analysis object in \texttt{R}, I have to create this table myself.
 
 
 \begin{table}[H]
@@ -353,7 +353,7 @@ Residuals & 506.92 & 550.00 & & & \\\hline
 Table 2: ANOVA table for Case Study I.
 \end{center}
 
-The \textbf{palmerpenguins} package for R \citep{palmerpenguins} provides data on adult for aging penguins near Palmer Station, Antarctica. Figure 2 is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
+The \texttt{palmerpenguins} package for \texttt{R} \citep{palmerpenguins} provides data on adult for aging penguins near Palmer Station, Antarctica. Figure \textcolor{red}{2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
 
 
 \begin{knitrout}

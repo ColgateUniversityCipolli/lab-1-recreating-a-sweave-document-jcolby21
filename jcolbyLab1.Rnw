@@ -134,7 +134,7 @@ Note, I did a page break here so that the next section
 # Output is automatically printed in the pdf
 @
  
-Below, you can see that we can do algebra with R.
+Below, you can see that we can do algebra with \texttt{R}.
 
 << >>=
 8*(9-5)+9 # 8(x-5) + x for x=9
@@ -159,7 +159,7 @@ We can also call object values from R directly.
 
 
 \subsection{Plotting}
-We can also plot with R.
+We can also plot with \texttt{R}.
 <<plot1, eval=FALSE, >>=
 #Plot a histogram of random normally distributed data
 hist(rexp(100))
@@ -193,7 +193,7 @@ head(VADeaths) # Take a peek of the data
 
  If we want to print this nicely, we can do so using the
  xtable package \citep{xtable}, which we can reference
- using the label (Table 1).
+ using the label (Table \textcolor{red}{1}).
  
  << >>=
 library(xtable)
@@ -217,7 +217,7 @@ table.placement = "H", include.rownames=FALSE, size = "small")
 \end{multicols}
 
 \section{Appendix}
- Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+ Below is a table from a paper I’m currently working on. Without the analysis object in \texttt{R}, I have to create this table myself.
 
 
 \begin{table}[H]
@@ -240,7 +240,7 @@ Residuals & 506.92 & 550.00 & & & \\\hline
 Table 2: ANOVA table for Case Study I.
 \end{center}
 
-The \textbf{palmerpenguins} package for R \citep{palmerpenguins} provides data on adult for aging penguins near Palmer Station, Antarctica. Figure 2 is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
+The \texttt{palmerpenguins} package for \texttt{R} \citep{palmerpenguins} provides data on adult for aging penguins near Palmer Station, Antarctica. Figure \textcolor{red}{2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
 
 
  <<plot3, >>=
